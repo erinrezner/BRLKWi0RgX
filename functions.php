@@ -721,3 +721,13 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 		do_action( 'wp_body_open' );
 	}
 endif;
+
+//Remove Customizer objects
+function my_customize_register() {
+  global $wp_customize;
+  $wp_customize->remove_section( 'colors' );
+  $wp_customize->remove_section( 'header_image' );
+  $wp_customize->remove_section( 'background_image' );
+}
+
+add_action( 'customize_register', 'my_customize_register', 11 );
