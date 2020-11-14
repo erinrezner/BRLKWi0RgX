@@ -106,6 +106,8 @@ function twentytwelve_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menu( 'primary', __( 'Primary Menu', 'twentytwelve' ) );
+	register_nav_menu( 'footer', __( 'Footer Menu', 'twentytwelve' ) );
+	register_nav_menu( 'dogs', __( 'Our Dogs Menu', 'twentytwelve' ) );
 
 	/*
 	 * This theme supports custom background color and image,
@@ -353,29 +355,6 @@ function twentytwelve_widgets_init() {
 		)
 	);
 
-	register_sidebar(
-		array(
-			'name'          => __( 'First Front Page Widget Area', 'twentytwelve' ),
-			'id'            => 'sidebar-2',
-			'description'   => __( 'Appears when using the optional Front Page template with a page set as Static Front Page', 'twentytwelve' ),
-			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</aside>',
-			'before_title'  => '<h3 class="widget-title">',
-			'after_title'   => '</h3>',
-		)
-	);
-
-	register_sidebar(
-		array(
-			'name'          => __( 'Second Front Page Widget Area', 'twentytwelve' ),
-			'id'            => 'sidebar-3',
-			'description'   => __( 'Appears when using the optional Front Page template with a page set as Static Front Page', 'twentytwelve' ),
-			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</aside>',
-			'before_title'  => '<h3 class="widget-title">',
-			'after_title'   => '</h3>',
-		)
-	);
 }
 add_action( 'widgets_init', 'twentytwelve_widgets_init' );
 
@@ -607,7 +586,7 @@ add_filter( 'body_class', 'twentytwelve_body_class' );
 function twentytwelve_content_width() {
 	if ( is_page_template( 'page-templates/full-width.php' ) || is_attachment() || ! is_active_sidebar( 'sidebar-1' ) ) {
 		global $content_width;
-		$content_width = 960;
+		$content_width = 1440;
 	}
 }
 add_action( 'template_redirect', 'twentytwelve_content_width' );

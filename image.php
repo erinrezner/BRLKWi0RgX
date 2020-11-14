@@ -102,7 +102,7 @@ get_header(); ?>
 									 *     @type int The attachment width in pixels.
 									 * }
 									 */
-									$attachment_size = apply_filters( 'twentytwelve_attachment_size', array( 960, 960 ) );
+									$attachment_size = apply_filters( 'twentytwelve_attachment_size', array( 1440, 1440 ) );
 									echo wp_get_attachment_image( $post->ID, $attachment_size );
 									?>
 								</a>

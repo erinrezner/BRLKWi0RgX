@@ -9,21 +9,22 @@
  * @since Twenty Twelve 1.0
  */
 ?>
+		<div class="dashes"></div>
 	</div><!-- #main .wrapper -->
 	<footer id="colophon" role="contentinfo">
 		<div class="site-info">
-			<?php do_action( 'twentytwelve_credits' ); ?>
+			<nav id="site-navigation" class="footer-navigation" role="navigation">
+			<button class="menu-toggle"><?php _e( 'Menu', 'twentytwelve' ); ?></button>
+			<a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentytwelve' ); ?>"><?php _e( 'Skip to content', 'twentytwelve' ); ?></a>
 			<?php
-			if ( function_exists( 'the_privacy_policy_link' ) ) {
-				the_privacy_policy_link( '', '<span role="separator" aria-hidden="true"></span>' );
-			}
+			wp_nav_menu(
+				array(
+					'theme_location' => 'footer',
+					'menu_class'     => 'nav-menu',
+				)
+			);
 			?>
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'twentytwelve' ) ); ?>" class="imprint" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'twentytwelve' ); ?>">
-				<?php
-				/* translators: %s: WordPress */
-				printf( __( 'Proudly powered by %s', 'twentytwelve' ), 'WordPress' );
-				?>
-			</a>
+		</nav>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
