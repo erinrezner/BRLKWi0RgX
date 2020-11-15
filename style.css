@@ -45,6 +45,7 @@ http://snook.ca/archives/html_and_css/font-size-with-rem
 http://blog.typekit.com/2011/11/09/type-study-sizing-the-legible-letter/
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
 
 
 /* =Reset
@@ -545,7 +546,7 @@ a:hover {
 
 /* Custom */
 .dashes {
-	height: 5px;
+	height: 3px;
 	background: url('img/dash_line.png') bottom left;
 	background-repeat: repeat-x;
 	clear: both;
@@ -676,7 +677,7 @@ section[role="banner"] {
 
 /* Footer */
 footer[role="contentinfo"] {
-	border-top: 1px solid white;
+	border-top: 2px solid white;
 	clear: both;
 	font-size: 12px;
 	font-size: 0.857142857rem;
@@ -754,10 +755,10 @@ footer[role="contentinfo"] a:hover {
 	margin-bottom: 1.714285714rem;
 }
 .entry-header .entry-title {
-	font-size: 20px;
-	font-size: 1.428571429rem;
+	font-family: 'Amatic SC', cursive;
+	font-size: 52px !important;
+	font-weight: bold !important;
 	line-height: 1.2;
-	font-weight: normal;
 }
 .entry-header .entry-title a {
 	text-decoration: none;
@@ -1603,13 +1604,12 @@ img#wpstats {
 		margin-bottom: 0;
 	}
 	.menulogo {
-		background-image: url('img/lotwl_logo_small.png');
+		background-image: url('img/lotwl_logo.png');
 		background-repeat: no-repeat;
 		background-position: top left;
-		width: 85px;
-		height: 30px;
+		width: 163px;
+		height: 55px;
 		position: relative;
-		/*top: -20px;*/
 		left: 10px;
 		bottom: -10px;
 		overflow: hidden;
