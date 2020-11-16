@@ -33,6 +33,8 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+
+<div class="outersite">
 <div id="page" class="hfeed site">
 	<header id="masthead" class="site-header" role="banner">
 		<?php if ( get_header_image() ) : ?>
@@ -53,6 +55,6 @@
 		</nav><!-- #site-navigation -->
 
 	</header><!-- #masthead -->
+	<div class="dashes"></div>
 
 	<div id="main" class="wrapper">
-		<div class="dashes"></div>

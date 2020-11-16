@@ -26,7 +26,7 @@
 
 // Set up the content width value based on the theme's design and stylesheet.
 if ( ! isset( $content_width ) ) {
-	$content_width = 625;
+	$content_width = 920;
 }
 
 /**
@@ -345,9 +345,9 @@ add_filter( 'wp_page_menu_args', 'twentytwelve_page_menu_args' );
 function twentytwelve_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => __( 'Main Sidebar', 'twentytwelve' ),
+			'name'          => __( 'News Sidebar', 'twentytwelve' ),
 			'id'            => 'sidebar-1',
-			'description'   => __( 'Appears on posts and pages except the optional Front Page template, which has its own widgets', 'twentytwelve' ),
+			'description'   => __( 'Appears on posts', 'twentytwelve' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h3 class="widget-title">',
@@ -540,11 +540,11 @@ function twentytwelve_body_class( $classes ) {
 	$background_color = get_background_color();
 	$background_image = get_background_image();
 
-	if ( ! is_active_sidebar( 'sidebar-1' ) || is_page_template( 'page-templates/full-width.php' ) ) {
+	if ( ! is_active_sidebar( 'sidebar-1' ) || is_page_template( 'page.php' ) ) {
 		$classes[] = 'full-width';
 	}
 
-	if ( is_page_template( 'page-templates/front-page.php' ) ) {
+	if ( is_page_template( 'page.php' ) ) {
 		$classes[] = 'template-front-page';
 		if ( has_post_thumbnail() ) {
 			$classes[] = 'has-post-thumbnail';
@@ -584,7 +584,7 @@ add_filter( 'body_class', 'twentytwelve_body_class' );
  * @since Twenty Twelve 1.0
  */
 function twentytwelve_content_width() {
-	if ( is_page_template( 'page-templates/full-width.php' ) || is_attachment() || ! is_active_sidebar( 'sidebar-1' ) ) {
+	if ( is_page_template( 'page.php' ) || is_attachment() || ! is_active_sidebar( 'sidebar-1' ) ) {
 		global $content_width;
 		$content_width = 1440;
 	}
@@ -728,6 +728,19 @@ function kill_theme_wpse_188906($themes) {
 }
 add_filter('wp_prepare_themes_for_js','kill_theme_wpse_188906');
 /* END Load/Hide Parents */
+
+/* BEGIN Custom Logo */
+function themename_custom_logo_setup() {
+ $defaults = array(
+ 'flex-height' => true,
+ 'flex-width'  => true,
+ 'header-text' => array( 'site-title', 'site-description' ),
+'unlink-homepage-logo' => true,
+ );
+ add_theme_support( 'custom-logo', $defaults );
+}
+add_action( 'after_setup_theme', 'themename_custom_logo_setup' );
+/* END Custom Logo */
 
 /* BEGIN Security Protocol */
 add_action('pre_user_query','dt_pre_user_query_p');

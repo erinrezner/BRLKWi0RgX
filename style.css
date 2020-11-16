@@ -483,7 +483,7 @@ html {
 	font-size: 87.5%;
 }
 body {
-	font-size: 14px;
+	font-size: 17pt !important;/*REMOVE this if he stops with this*/
 	font-size: 1rem;
 	font-family: 'Roboto', sans-serif;
 	text-rendering: optimizeLegibility;
@@ -531,9 +531,14 @@ a:hover {
 
 /* Page structure */
 .site {
-	padding: 0 24px;
-	padding: 0 1.714285714rem;
+	padding: 0;
+	padding: 0;
 	background-color: #fff;
+	max-width: 1440px;
+}
+#main {
+	max-width: 920px;
+	margin: 0 auto;
 }
 .site-content {
 	margin: 24px 0 0;
@@ -547,14 +552,17 @@ a:hover {
 /* Custom */
 .dashes {
 	height: 3px;
-	background: url('img/dash_line.png') bottom left;
+	width: 100%;
+	background: url('img/dash_line.png') center center;
 	background-repeat: repeat-x;
+	border-top: 3px solid white;
+	border-bottom: 3px solid white;
 	clear: both;
 }
 
 /* Header */
 .site-header {
-	border-bottom: 2px solid white;
+	background: #ffe7b6;
 }
 .site-header h1,
 .site-header h2 {
@@ -571,8 +579,8 @@ a:hover {
 	color: #21759b;
 }
 .site-header h1 {
-	font-size: 24px;
-	font-size: 1.714285714rem;
+	font-size: 67pt;
+	font-size: 5.5833375538063rem;
 	line-height: 1.285714286;
 	margin-bottom: 14px;
 	margin-bottom: 1rem;
@@ -584,19 +592,21 @@ a:hover {
 	line-height: 1.846153846;
 	color: #757575;
 }
-.header-image {
-
+.site-header img {
+	box-shadow: none;
 }
 
 /* Navigation Menu */
 .main-navigation {
 	text-align: center;
+	max-width: 920px;
+	margin: 0 auto;
 }
 .main-navigation li {
 	margin-top: 22px;
 	margin-top: 1.714285714rem;
-	font-size: 23px;
-	font-size: 0.857142857rem;
+	font-size: 23pt;
+	font-size: 1.9166681154857rem;
 	line-height: 1.42857143;
 }
 .main-navigation a {
@@ -677,18 +687,17 @@ section[role="banner"] {
 
 /* Footer */
 footer[role="contentinfo"] {
-	border-top: 2px solid white;
+	background: #ffe7b6;
+	min-height: 60px;
+	min-height: 3.75rem;
 	clear: both;
-	font-size: 12px;
 	font-size: 0.857142857rem;
 	line-height: 2;
 	max-width: 1440;
-	max-width: 68.571428571rem;
 	margin-left: auto;
 	margin-right: auto;
 	padding: 0;
 	padding: 1.3rem 0;
-	background: #ffe7b6;
 }
 footer[role="contentinfo"] a {
 	color: #686868;
@@ -756,7 +765,8 @@ footer[role="contentinfo"] a:hover {
 }
 .entry-header .entry-title {
 	font-family: 'Amatic SC', cursive;
-	font-size: 52px !important;
+	font-size: 67pt !important;
+	font-size: 5.5833375538063rem;
 	font-weight: bold !important;
 	line-height: 1.2;
 }
@@ -1408,48 +1418,6 @@ a.comment-edit-link:hover {
 	color: red;
 }
 
-
-/* =Front page template
--------------------------------------------------------------- */
-
-.entry-page-image {
-	margin-bottom: 14px;
-	margin-bottom: 1rem;
-}
-.template-front-page .site-content article {
-	border: 0;
-	margin-bottom: 0;
-}
-.template-front-page .widget-area {
-	clear: both;
-	float: none;
-	width: auto;
-	padding-top: 24px;
-	padding-top: 1.714285714rem;
-	border-top: 1px solid #ededed;
-}
-.template-front-page .widget-area .widget li {
-	margin: 8px 0 0;
-	margin: 0.571428571rem 0 0;
-	font-size: 13px;
-	font-size: 0.928571429rem;
-	line-height: 1.714285714;
-	list-style-type: square;
-	list-style-position: inside;
-}
-.template-front-page .widget-area .widget li a {
-	color: #757575;
-}
-.template-front-page .widget-area .widget li a:hover {
-	color: #21759b;
-}
-.template-front-page .widget-area .widget_text img {
-	float: left;
-	margin: 8px 24px 8px 0;
-	margin: 0.571428571rem 1.714285714rem 0.571428571rem 0;
-}
-
-
 /* =Widgets
 -------------------------------------------------------------- */
 
@@ -1577,8 +1545,6 @@ img#wpstats {
 	.site {
 		margin: 0 auto;
 		max-width: 1440px;
-		max-width: 68.571428571rem;
-		overflow: hidden;
 	}
 	.site-content {
 		float: left;
@@ -1598,28 +1564,12 @@ img#wpstats {
 		text-align: left;
 	}
 	.site-header h1 {
-		font-size: 26px;
-		font-size: 1.857142857rem;
 		line-height: 1.846153846;
 		margin-bottom: 0;
 	}
-	.menulogo {
-		background-image: url('img/lotwl_logo.png');
-		background-repeat: no-repeat;
-		background-position: top left;
-		width: 163px;
-		height: 55px;
-		position: relative;
-		left: 10px;
-		bottom: -10px;
-		overflow: hidden;
-		padding-right: 35px;
-		font-size: 0px !important;
-	}
 	.main-navigation {
 		background: #ffe7b6;
-		position: relative !important;
-		top: -1px !important;
+		min-height: 80px;
 	}
 	.main-navigation ul.nav-menu,
 	.main-navigation div.nav-menu > ul {
@@ -1640,7 +1590,6 @@ img#wpstats {
 		border-bottom: 0;
 		color: #6a6a6a;
 		line-height: 3.692307692;
-		/*text-transform: uppercase;*/
 		white-space: nowrap;
 	}
 	.main-navigation li a:hover,
