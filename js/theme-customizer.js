@@ -17,5 +17,4 @@
 			$( '.site-description' ).text( to );
 		} );
 	} );
-
 } )( jQuery );

