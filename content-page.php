@@ -10,9 +10,6 @@
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class="entry-header">
-			<?php if ( ! is_page_template( 'page-templates/front-page.php' ) ) : ?>
-				<?php the_post_thumbnail(); ?>
-			<?php endif; ?>
 			<h1 class="entry-title"><?php the_title(); ?></h1>
 		</header>
 
@@ -21,13 +18,13 @@
 			<?php
 			wp_link_pages(
 				array(
-					'before' => '<div class="page-links">' . __( 'Pages:', 'twentytwelve' ),
+					'before' => '<div class="page-links">' . __( 'Pages:', 'lotwilabs' ),
 					'after'  => '</div>',
 				)
 			);
 			?>
 		</div><!-- .entry-content -->
 		<footer class="entry-meta">
-			<?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<span class="edit-link">', '</span>' ); ?>
+			<?php edit_post_link( __( 'Edit', 'lotwilabs' ), '<span class="edit-link">', '</span>' ); ?>
 		</footer><!-- .entry-meta -->
 	</article><!-- #post -->

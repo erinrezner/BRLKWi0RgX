@@ -21,7 +21,7 @@ get_header(); ?>
 				<h1 class="archive-title">
 				<?php
 				/* translators: %s: Tag title. */
-				printf( __( 'Tag Archives: %s', 'twentytwelve' ), '<span>' . single_tag_title( '', false ) . '</span>' );
+				printf( __( 'Tag Archives: %s', 'lotwilabs' ), '<span>' . single_tag_title( '', false ) . '</span>' );
 				?>
 				</h1>
 
@@ -44,7 +44,7 @@ get_header(); ?>
 
 			endwhile;
 
-			twentytwelve_content_nav( 'nav-below' );
+			lotwilabs_content_nav( 'nav-below' );
 			?>
 
 		<?php else : ?>

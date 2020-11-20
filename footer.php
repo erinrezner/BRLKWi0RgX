@@ -10,11 +10,11 @@
  */
 ?>
 	</div><!-- #main .wrapper -->
-	<div class="dashes"></div>
+	<div class="dashes dashes-bottom"></div>
 	<footer id="colophon" role="contentinfo">
 		<div class="site-info">
 			<nav id="site-navigation" class="footer-navigation" role="navigation">
-			<a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentytwelve' ); ?>"><?php _e( 'Skip to content', 'twentytwelve' ); ?></a>
+			<a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to content', 'lotwilabs' ); ?>"><?php _e( 'Skip to content', 'lotwilabs' ); ?></a>
 			<?php
 			wp_nav_menu(
 				array(

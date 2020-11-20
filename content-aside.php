@@ -8,14 +8,14 @@
  */
 
 /* translators: %s: Post title. */
-$post_title = sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) );
+$post_title = sprintf( __( 'Permalink to %s', 'lotwilabs' ), the_title_attribute( 'echo=0' ) );
 ?>
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<div class="aside">
 			<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 			<div class="entry-content">
-				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentytwelve' ) ); ?>
+				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'lotwilabs' ) ); ?>
 			</div><!-- .entry-content -->
 		</div><!-- .aside -->
 
@@ -23,9 +23,9 @@ $post_title = sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attrib
 			<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( $post_title ); ?>" rel="bookmark"><?php echo get_the_date(); ?></a>
 			<?php if ( comments_open() ) : ?>
 			<div class="comments-link">
-				<?php comments_popup_link( '<span class="leave-reply">' . __( 'Leave a reply', 'twentytwelve' ) . '</span>', __( '1 Reply', 'twentytwelve' ), __( '% Replies', 'twentytwelve' ) ); ?>
+				<?php comments_popup_link( '<span class="leave-reply">' . __( 'Leave a reply', 'lotwilabs' ) . '</span>', __( '1 Reply', 'lotwilabs' ), __( '% Replies', 'lotwilabs' ) ); ?>
 			</div><!-- .comments-link -->
 			<?php endif; // comments_open() ?>
-			<?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<span class="edit-link">', '</span>' ); ?>
+			<?php edit_post_link( __( 'Edit', 'lotwilabs' ), '<span class="edit-link">', '</span>' ); ?>
 		</footer><!-- .entry-meta -->
 	</article><!-- #post -->

@@ -4,7 +4,7 @@
  *
  * The area of the page that contains both current comments
  * and the comment form. The actual display of comments is
- * handled by a callback to twentytwelve_comment() which is
+ * handled by a callback to lotwilabs_comment() which is
  * located in the functions.php file.
  *
  * @package WordPress
@@ -32,13 +32,13 @@ if ( post_password_required() ) {
 			if ( 1 === get_comments_number() ) {
 				printf(
 					/* translators: %s: The post title. */
-					__( 'One thought on &ldquo;%s&rdquo;', 'twentytwelve' ),
+					__( 'One thought on &ldquo;%s&rdquo;', 'lotwilabs' ),
 					'<span>' . get_the_title() . '</span>'
 				);
 			} else {
 				printf(
 					/* translators: %1$s: The number of comments. %2$s: The post title. */
-					_n( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'twentytwelve' ),
+					_n( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'lotwilabs' ),
 					number_format_i18n( get_comments_number() ),
 					'<span>' . get_the_title() . '</span>'
 				);
@@ -50,7 +50,7 @@ if ( post_password_required() ) {
 			<?php
 			wp_list_comments(
 				array(
-					'callback' => 'twentytwelve_comment',
+					'callback' => 'lotwilabs_comment',
 					'style'    => 'ol',
 				)
 			);
@@ -59,9 +59,9 @@ if ( post_password_required() ) {
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
 		<nav id="comment-nav-below" class="navigation" role="navigation">
-			<h1 class="assistive-text section-heading"><?php _e( 'Comment navigation', 'twentytwelve' ); ?></h1>
-			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'twentytwelve' ) ); ?></div>
-			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'twentytwelve' ) ); ?></div>
+			<h1 class="assistive-text section-heading"><?php _e( 'Comment navigation', 'lotwilabs' ); ?></h1>
+			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'lotwilabs' ) ); ?></div>
+			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'lotwilabs' ) ); ?></div>
 		</nav>
 		<?php endif; // Check for comment navigation. ?>
 
@@ -72,7 +72,7 @@ if ( post_password_required() ) {
 		 */
 		if ( ! comments_open() && get_comments_number() ) :
 			?>
-		<p class="nocomments"><?php _e( 'Comments are closed.', 'twentytwelve' ); ?></p>
+		<p class="nocomments"><?php _e( 'Comments are closed.', 'lotwilabs' ); ?></p>
 		<?php endif; ?>
 
 	<?php endif; // have_comments() ?>

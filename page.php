@@ -15,7 +15,7 @@
 get_header(); ?>
 
 	<div id="primary" class="site-content">
-		<div id="content" role="main">
+		<div id="content" role="main" class="beigepaw">
 
 			<?php
 			while ( have_posts() ) :
@@ -23,6 +23,8 @@ get_header(); ?>
 				?>
 				<?php get_template_part( 'content', 'page' ); ?>
 			<?php endwhile; // End of the loop. ?>
+
+			<div class="paw-divider"></div>
 
 		</div><!-- #content -->
 	</div><!-- #primary -->

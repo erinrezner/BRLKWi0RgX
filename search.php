@@ -18,12 +18,12 @@ get_header(); ?>
 				<h1 class="page-title">
 				<?php
 				/* translators: %s: Search query. */
-				printf( __( 'Search Results for: %s', 'twentytwelve' ), '<span>' . get_search_query() . '</span>' );
+				printf( __( 'Search Results for: %s', 'lotwilabs' ), '<span>' . get_search_query() . '</span>' );
 				?>
 				</h1>
 			</header>
 
-			<?php twentytwelve_content_nav( 'nav-above' ); ?>
+			<?php lotwilabs_content_nav( 'nav-above' ); ?>
 
 			<?php
 			// Start the Loop.
@@ -33,17 +33,17 @@ get_header(); ?>
 				<?php get_template_part( 'content', get_post_format() ); ?>
 			<?php endwhile; ?>
 
-			<?php twentytwelve_content_nav( 'nav-below' ); ?>
+			<?php lotwilabs_content_nav( 'nav-below' ); ?>
 
 		<?php else : ?>
 
 			<article id="post-0" class="post no-results not-found">
 				<header class="entry-header">
-					<h1 class="entry-title"><?php _e( 'Nothing Found', 'twentytwelve' ); ?></h1>
+					<h1 class="entry-title"><?php _e( 'Nothing Found', 'lotwilabs' ); ?></h1>
 				</header>
 
 				<div class="entry-content">
-					<p><?php _e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'twentytwelve' ); ?></p>
+					<p><?php _e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'lotwilabs' ); ?></p>
 					<?php get_search_form(); ?>
 				</div><!-- .entry-content -->
 			</article><!-- #post-0 -->

@@ -28,15 +28,15 @@ get_header(); ?>
 				<?php
 				if ( is_day() ) {
 					/* translators: %s: Date. */
-					printf( __( 'Daily Archives: %s', 'twentytwelve' ), '<span>' . get_the_date() . '</span>' );
+					printf( __( 'Daily Archives: %s', 'lotwilabs' ), '<span>' . get_the_date() . '</span>' );
 				} elseif ( is_month() ) {
 					/* translators: %s: Date. */
-					printf( __( 'Monthly Archives: %s', 'twentytwelve' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'twentytwelve' ) ) . '</span>' );
+					printf( __( 'Monthly Archives: %s', 'lotwilabs' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'lotwilabs' ) ) . '</span>' );
 				} elseif ( is_year() ) {
 					/* translators: %s: Date. */
-					printf( __( 'Yearly Archives: %s', 'twentytwelve' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'twentytwelve' ) ) . '</span>' );
+					printf( __( 'Yearly Archives: %s', 'lotwilabs' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'lotwilabs' ) ) . '</span>' );
 				} else {
-					_e( 'Archives', 'twentytwelve' );
+					_e( 'Archives', 'lotwilabs' );
 				}
 				?>
 				</h1>
@@ -56,7 +56,7 @@ get_header(); ?>
 
 			endwhile;
 
-			twentytwelve_content_nav( 'nav-below' );
+			lotwilabs_content_nav( 'nav-below' );
 			?>
 
 		<?php else : ?>

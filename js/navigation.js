@@ -37,12 +37,12 @@
 
 // Better focus for hidden submenu items for accessibility.
 ( function( $ ) {
-	$( '.main-navigation' ).find( 'a' ).on( 'focus.twentytwelve blur.twentytwelve', function() {
+	$( '.main-navigation' ).find( 'a' ).on( 'focus.lotwilabs blur.lotwilabs', function() {
 		$( this ).parents( '.menu-item, .page_item' ).toggleClass( 'focus' );
 	} );
 
   if ( 'ontouchstart' in window ) {
-    $('body').on( 'touchstart.twentytwelve',  '.menu-item-has-children > a, .page_item_has_children > a', function( e ) {
+    $('body').on( 'touchstart.lotwilabs',  '.menu-item-has-children > a, .page_item_has_children > a', function( e ) {
       var el = $( this ).parent( 'li' );
 
       if ( ! el.hasClass( 'focus' ) ) {

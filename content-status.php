@@ -8,7 +8,7 @@
  */
 
 /* translators: %s: Post title. */
-$post_title = sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) );
+$post_title = sprintf( __( 'Permalink to %s', 'lotwilabs' ), the_title_attribute( 'echo=0' ) );
 ?>
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -25,21 +25,21 @@ $post_title = sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attrib
 			 *
 			 * @param int $size The height and width of the avatar in pixels.
 			 */
-			$status_avatar = apply_filters( 'twentytwelve_status_avatar', 48 );
+			$status_avatar = apply_filters( 'lotwilabs_status_avatar', 48 );
 			echo get_avatar( get_the_author_meta( 'ID' ), $status_avatar );
 			?>
 		</div><!-- .entry-header -->
 
 		<div class="entry-content">
-			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentytwelve' ) ); ?>
+			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'lotwilabs' ) ); ?>
 		</div><!-- .entry-content -->
 
 		<footer class="entry-meta">
 			<?php if ( comments_open() ) : ?>
 			<div class="comments-link">
-				<?php comments_popup_link( '<span class="leave-reply">' . __( 'Leave a reply', 'twentytwelve' ) . '</span>', __( '1 Reply', 'twentytwelve' ), __( '% Replies', 'twentytwelve' ) ); ?>
+				<?php comments_popup_link( '<span class="leave-reply">' . __( 'Leave a reply', 'lotwilabs' ) . '</span>', __( '1 Reply', 'lotwilabs' ), __( '% Replies', 'lotwilabs' ) ); ?>
 			</div><!-- .comments-link -->
 			<?php endif; // comments_open() ?>
-			<?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<span class="edit-link">', '</span>' ); ?>
+			<?php edit_post_link( __( 'Edit', 'lotwilabs' ), '<span class="edit-link">', '</span>' ); ?>
 		</footer><!-- .entry-meta -->
 	</article><!-- #post -->
