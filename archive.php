@@ -20,7 +20,7 @@
 get_header(); ?>
 
 	<section id="primary" class="site-content">
-		<div id="content" role="main">
+		<div id="content" role="main" class="brownpaw">
 
 		<?php if ( have_posts() ) : ?>
 			<header class="archive-header">
@@ -62,6 +62,8 @@ get_header(); ?>
 		<?php else : ?>
 			<?php get_template_part( 'content', 'none' ); ?>
 		<?php endif; ?>
+
+		<div class="paw-divider"></div>
 
 		</div><!-- #content -->
 	</section><!-- #primary -->

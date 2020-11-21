@@ -10,7 +10,7 @@
 get_header(); ?>
 
 	<div id="primary" class="site-content">
-		<div id="content" role="main">
+		<div id="content" role="main" class="greypaw">
 
 			<?php
 			while ( have_posts() ) :
@@ -28,6 +28,8 @@ get_header(); ?>
 				<?php comments_template( '', true ); ?>
 
 			<?php endwhile; // End of the loop. ?>
+
+			<div class="paw-divider"></div>
 
 		</div><!-- #content -->
 	</div><!-- #primary -->

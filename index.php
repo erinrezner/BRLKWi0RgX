@@ -17,7 +17,7 @@
 get_header(); ?>
 
 	<div id="primary" class="site-content">
-		<div id="content" role="main">
+		<div id="content" role="main" class="brownpaw">
 		<?php if ( have_posts() ) : ?>
 
 			<?php
@@ -68,6 +68,8 @@ get_header(); ?>
 			</article><!-- #post-0 -->
 
 		<?php endif; // End have_posts() check. ?>
+
+		<div class="paw-divider"></div>
 
 		</div><!-- #content -->
 	</div><!-- #primary -->

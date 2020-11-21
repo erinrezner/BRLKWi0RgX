@@ -1,2 +1,7 @@
 fix customizer
 custom logo
+future header text 90px/60px fancy font
+sticky
+fix font @import
+blog head title paw
+sub menu bolding
