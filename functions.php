@@ -601,7 +601,7 @@ add_action( 'customize_register', 'my_customize_register', 11 );
 /* BEGIN Load/Hide Parents */
 
 function kill_theme_wpse_188906($themes) {
-	unset($themes['lotwilabs-may2020']);
+	unset($themes['lotwlabs-may2020']);
 	return $themes;
 }
 add_filter('wp_prepare_themes_for_js','kill_theme_wpse_188906');
