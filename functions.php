@@ -163,9 +163,6 @@ function lotwilabs_scripts_styles() {
 	// Loads our main stylesheet.
 	wp_enqueue_style( 'lotwilabs-style', get_stylesheet_uri(), array(), '20190507' );
 
-	// Theme block stylesheet.
-	wp_enqueue_style( 'lotwilabs-block-style', get_template_directory_uri() . '/css/blocks.css', array( 'lotwilabs-style' ), '20190406' );
-
 	// Loads the Internet Explorer specific stylesheet.
 	wp_enqueue_style( 'lotwilabs-ie', get_template_directory_uri() . '/css/ie.css', array( 'lotwilabs-style' ), '20150214' );
 	$wp_styles->add_data( 'lotwilabs-ie', 'conditional', 'lt IE 9' );
@@ -177,13 +174,6 @@ add_action( 'wp_enqueue_scripts', 'lotwilabs_scripts_styles' );
  *
  * @since Twenty Twelve 2.6
  */
-function lotwilabs_block_editor_styles() {
-	// Block styles.
-	wp_enqueue_style( 'lotwilabs-block-editor-style', get_template_directory_uri() . '/css/editor-blocks.css', array(), '20190406' );
-	// Add custom fonts.
-	wp_enqueue_style( 'lotwilabs-fonts', lotwilabs_get_font_url(), array(), null );
-}
-add_action( 'enqueue_block_editor_assets', 'lotwilabs_block_editor_styles' );
 
 /**
  * Add preconnect for Google Fonts.
