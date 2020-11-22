@@ -3,5 +3,5 @@ custom logo
 future header text 90px/60px fancy font
 sticky
 fix font @import
-blog head title paw
 sub menu bolding
+blog why are some "off"?  is it the ones with comments?  some are missing?
