@@ -1,24 +1,5 @@
 <?php
 /**
- * Twenty Twelve functions and definitions
- *
- * Sets up the theme and provides some helper functions, which are used
- * in the theme as custom template tags. Others are attached to action and
- * filter hooks in WordPress to change core functionality.
- *
- * When using a child theme you can override certain functions (those wrapped
- * in a function_exists() call) by defining them first in your child theme's
- * functions.php file. The child theme's functions.php file is included before
- * the parent theme's file, so the child theme functions would be used.
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- * @link https://developer.wordpress.org/themes/advanced-topics/child-themes/
- *
- * Functions that are not pluggable (not wrapped in function_exists()) are instead attached
- * to a filter or action hook.
- *
- * For more information on hooks, actions, and filters, @link https://developer.wordpress.org/plugins/
- *
  * @package WordPress
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
@@ -30,47 +11,15 @@ if ( ! isset( $content_width ) ) {
 }
 
 /**
- * Twenty Twelve setup.
- *
- * Sets up theme defaults and registers the various WordPress features that
- * Twenty Twelve supports.
- *
- * @uses load_theme_textdomain() For translation/localization support.
- * @uses add_editor_style() To add a Visual Editor stylesheet.
- * @uses add_theme_support() To add support for post thumbnails, automatic feed links,
- *  custom background, and post formats.
- * @uses register_nav_menu() To add support for navigation menus.
- * @uses set_post_thumbnail_size() To set a custom post thumbnail size.
- *
  * @since Twenty Twelve 1.0
  */
 function lotwilabs_setup() {
-	/*
-	 * Makes Twenty Twelve available for translation.
-	 *
-	 * Translations can be filed at WordPress.org. See: https://translate.wordpress.org/projects/wp-themes/lotwilabs
-	 * If you're building a theme based on Twenty Twelve, use a find and replace
-	 * to change 'lotwilabs' to the name of your theme in all the template files.
-	 */
-	load_theme_textdomain( 'lotwilabs' );
-
-	// This theme styles the visual editor with editor-style.css to match the theme style.
-	add_editor_style();
-
-	// Load regular editor styles into the new block-based editor.
-	add_theme_support( 'editor-styles' );
-
-	// Load default block styles.
-	add_theme_support( 'wp-block-styles' );
 
 	// Add support for responsive embeds.
 	add_theme_support( 'responsive-embeds' );
 
 	// Adds RSS feed links to <head> for posts and comments.
 	add_theme_support( 'automatic-feed-links' );
-
-	// This theme supports a variety of post formats.
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'link', 'quote', 'status' ) );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menu( 'primary', __( 'Primary Menu', 'lotwilabs' ) );
