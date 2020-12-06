@@ -14,7 +14,7 @@
 get_header(); ?>
 
 	<section id="primary" class="site-content">
-		<div id="content" role="main" class="beigepaw">
+		<div id="content" role="main">
 
 		<?php if ( have_posts() ) : ?>
 			<header class="archive-header">

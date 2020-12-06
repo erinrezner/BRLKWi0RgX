@@ -10,7 +10,7 @@
 get_header(); ?>
 
 	<div id="primary" class="site-content">
-		<div id="content" role="main" class="greypaw">
+		<div id="content" role="main">
 
 			<?php
 			while ( have_posts() ) :

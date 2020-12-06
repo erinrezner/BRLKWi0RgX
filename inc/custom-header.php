@@ -26,12 +26,12 @@ function twentytwelve_custom_header_setup() {
 		'default-image'          => '',
 
 		// Set height and width, with a maximum value for the width.
-		'height'                 => 9999,
+		'height'                 => 600,
 		'width'                  => 1440,
 		'max-width'              => 1440,
 
 		// Support flexible height and width.
-		'flex-height'            => true,
+		'flex-height'            => false,
 		'flex-width'             => true,
 
 		// Random image rotation off by default.

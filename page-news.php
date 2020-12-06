@@ -1,0 +1,1 @@
+<?php wp_redirect( home_url().'/', 307 ); exit; ?>
