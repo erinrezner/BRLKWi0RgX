@@ -1,3 +1,4 @@
 fix font @import
 sub menu bolding - keep or leave?
 line dividers on drop down?
+Can I fix header text overlay
