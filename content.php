@@ -12,12 +12,6 @@
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class="entry-header">
-			<?php
-			if ( ! post_password_required() && ! is_attachment() ) :
-				the_post_thumbnail();
-			endif;
-			?>
-
 			<?php if ( is_single() ) : ?>
 			<h1 class="entry-title"><?php the_title(); ?></h1>
 			<?php else : ?>
@@ -25,12 +19,19 @@
 				<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
 			</h1>
 			<?php endif; // is_single() ?>
-			<?php if ( comments_open() ) : ?>
-				<div class="comments-link">
-					<?php comments_popup_link( '<span class="leave-reply">' . __( 'Leave a reply', 'lotwilabs' ) . '</span>', __( '1 Reply', 'lotwilabs' ), __( '% Replies', 'lotwilabs' ) ); ?>
-				</div><!-- .comments-link -->
-			<?php endif; // comments_open() ?>
 		</header><!-- .entry-header -->
+
+		<?php if ( comments_open() ) : ?>
+			<div class="comments-link">
+				<?php comments_popup_link( '<span class="leave-reply">' . __( 'Leave a reply', 'lotwilabs' ) . '</span>', __( '1 Reply', 'lotwilabs' ), __( '% Replies', 'lotwilabs' ) ); ?>
+			</div><!-- .comments-link -->
+		<?php endif; // comments_open() ?>
+
+		<?php
+			if ( ! post_password_required() && ! is_attachment() && is_single() ) :
+				the_post_thumbnail();
+			endif;
+		?>
 
 		<?php if ( is_search() ) : // Only display excerpts for search. ?>
 		<div class="entry-summary">

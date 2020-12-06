@@ -569,6 +569,18 @@ a:hover {
 .site-header {
 	background: #ffe7b6;
 }
+.site-title-group {
+	margin: 0;
+	width: 100%;
+	max-width: 1440px;
+	position: absolute;
+	padding: 0;
+	font-family: 'Amatic SC', cursive;
+	text-transform: uppercase;
+}
+.site-title-group .custom-logo {
+	margin: 25px;
+}
 .site-header img {
 	border-radius: none;
 	box-shadow: none;
@@ -748,6 +760,22 @@ footer[role="contentinfo"] a:hover {
 	display: none;
 }
 
+/* Sticky Entry */
+#sticky {
+	width: 100%;
+	display: block;
+	overflow: hidden;
+}
+#sticky .stickyinner {
+	background-color: rgba(255,  230,  181, 0.25);
+	max-width: 880px; /* 920 - (20px * 2) */
+	margin: 20px;
+	padding: 30px;
+}
+#sticky .entry-header a {
+	text-decoration: none;
+}
+
 
 /* =Main content and comment content
 -------------------------------------------------------------- */
@@ -761,15 +789,16 @@ footer[role="contentinfo"] a:hover {
 	background-position: left center;
 	background-repeat: no-repeat;
 	min-height: 55px;
-}
-.beigepaw .entry-header {
 	background-image: url('img/paw_beige.png');
 }
+.beigepaw .entry-header {
+	background-image: url('img/paw_beige.png') !important;
+}
 .greypaw .entry-header {
-	background-image: url('img/paw_grey.png');
+	background-image: url('img/paw_grey.png') !important;
 }
 .brownpaw .entry-header {
-	background-image: url('img/paw_brown.png');
+	background-image: url('img/paw_brown.png') !important;
 }
 .entry-header img.wp-post-image {
 	margin-bottom: 24px;
@@ -803,6 +832,14 @@ footer[role="contentinfo"] a:hover {
 	font-size: 13px;
 	font-size: 0.928571429rem;
 	line-height: 1.846153846;
+}
+.comments-link {
+	margin: 10px 0;
+}
+.wp-post-image {
+	margin: 20px auto;
+	width: auto;
+	height: auto;
 }
 .entry-content,
 .entry-summary,
@@ -1399,6 +1436,7 @@ img#wpstats {
 	#secondary{
 		display: none !important;
 	}
+	.site-title-group hgroup {display: none;}
 }
 
 /* Minimum width of 600 pixels. */
@@ -1415,6 +1453,26 @@ img#wpstats {
 	.site {
 		margin: 0 auto;
 		max-width: 1440px;
+	}
+	.site-title-group hgroup {
+		margin: 0 0 0 10%;
+	}
+	.site-title-group h1 {
+		/*font-size: 93px;
+		font-size: 5.8125rem;*/
+		font-size: 400%;
+		white-space: nowrap;
+	}
+	.site-title-group h1 a{
+		text-decoration: none;
+	}
+	.site-title-group h2 {
+		/*font-size: 60px;
+		font-size: 3.75rem;
+		*/
+		color: #fff;
+		font-size: 200%;
+		white-space: nowrap;
 	}
 	.site-content {
 		float: left;
@@ -1620,6 +1678,7 @@ img#wpstats {
 		margin-bottom: 5.142857143rem;
 		text-align: left;
 	}
+	.site-title-group {display: none;}
 	.author-avatar,
 	#colophon,
 	#respond,
