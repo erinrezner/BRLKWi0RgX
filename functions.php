@@ -32,6 +32,9 @@ function lotwilabs_setup() {
 
 	// Indicate widget sidebars can use selective refresh in the Customizer.
 	add_theme_support( 'customize-selective-refresh-widgets' );
+
+	// Add Page Excerpts
+	add_post_type_support( 'page', 'excerpt' );
 }
 add_action( 'after_setup_theme', 'lotwilabs_setup' );
 
